@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 11, 2023 3:00:54 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojo.Admin" table="Admin" catalog="fitlife" optimistic-lock="version">
+        <id name="username" type="string">
+            <column name="Username" length="25" />
+            <generator class="assigned" />
+        </id>
+        <property name="password" type="string">
+            <column name="Password" length="15" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

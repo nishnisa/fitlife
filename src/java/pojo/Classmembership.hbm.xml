@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 7, 2023 2:21:55 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojo.Classmembership" table="classmembership" catalog="fitlife" optimistic-lock="version">
+        <id name="idClassMembership" type="java.lang.Integer">
+            <column name="id_ClassMembership" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="classes" class="pojo.Classes" fetch="select">
+            <column name="id_Classes" not-null="true" />
+        </many-to-one>
+        <many-to-one name="member" class="pojo.Member" fetch="select">
+            <column name="id_Member" not-null="true" />
+        </many-to-one>
+        <many-to-one name="trainer" class="pojo.Trainer" fetch="select">
+            <column name="id_Trainer" not-null="true" />
+        </many-to-one>
+        <property name="startDate" type="date">
+            <column name="StartDate" length="10" not-null="true" />
+        </property>
+        <property name="endDate" type="date">
+            <column name="EndDate" length="10" not-null="true" />
+        </property>
+        <set name="attendances" table="attendance" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_ClassMembership" not-null="true" />
+            </key>
+            <one-to-many class="pojo.Attendance" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,289 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html
+  xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:h="http://xmlns.jcp.org/jsf/html"
+  xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+  xmlns:f="http://xmlns.jcp.org/jsf/core"
+>
+  <h:head>
+    <title>Fit Life</title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta name="author" content="" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1"
+    />
+
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/font-awesome.min.css" />
+    <link rel="stylesheet" href="css/aos.css" />
+    
+
+    <!-- MAIN CSS -->
+    <link rel="stylesheet" href="css/tooplate-gymso-style.css" />
+  </h:head>
+  <h:body>
+    <!--<ui:composition template="Template.xhtml">-->
+    <!--<ui:define name="body">-->
+    <!-- MENU BAR -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">FitLife</a>
+
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ml-lg-auto">
+            <li class="nav-item">
+              <a href="#home" class="nav-link smoothScroll">Home</a>
+            </li>
+
+            <li class="nav-item">
+              <a href="#about" class="nav-link smoothScroll">About Us</a>
+            </li>
+
+            <li class="nav-item">
+              <a href="#class" class="nav-link smoothScroll">Classes</a>
+            </li>
+
+            <li class="nav-item">
+              <a href="#schedule" class="nav-link smoothScroll">Schedules</a>
+            </li>
+
+            <li class="nav-item">
+              <a href="#contact" class="nav-link smoothScroll">Contact</a>
+            </li>
+          </ul>
+
+          <ul class="social-icon ml-lg-3">
+            <li>
+              <a href="#Login" class="nav-link smoothScroll">Login</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container">
+      <div class="row" style="margin-top: 85px">
+        <div class="ml-auto col-lg-5 col-md-6 col-12">
+          <header>
+            <h1>Login</h1>
+          </header>
+          <div class="isihalaman">
+            <div class="halamanutama">
+              <div class="kotak_login">
+                <p class="form-label">Please enter an Account</p>
+                <h:form>
+                  <div class="form-group pt-3">
+                    <label for="email">Email</label>
+                    <h:inputText
+                      class="form-control"
+                      value="#{member.email}"
+                      required="true"
+                      requiredMessage="You must enter your email"
+                    />
+                    <h:message for="userid" style="color: red" />
+                  </div>
+                  <div class="form-group pt-3">
+                    <label for="pass">Password</label>
+                    <h:inputSecret
+                      class="form-control"
+                      value="#{member.password}"
+                      required="true"
+                      requiredMessage="You must enter your password"
+                    />
+                    <h:message for="password" style="color: red" />
+                  </div>
+                  <br />
+                  <div style="display: flex">
+                    <div class="d-grid">
+                      <h:commandButton
+                        value="Login"
+                        class="btncari"
+                        style="padding: 10px 30px"
+                        action="#{member.validasiUser()}"
+                      />
+                    </div>
+                    <div class="d-grid col-sm-6">
+                      <h:commandButton
+                        type="reset"
+                        style="padding: 10px 30px"
+                        value="Reset"
+                        class="btncari"
+                      />
+                    </div>
+                  </div>
+                  <div>
+                    <p>
+                      Don't have account?<a
+                        href="#"
+                        data-aos="fade-up"
+                        data-aos-delay="300"
+                        data-toggle="modal"
+                        data-target="#membershipForm"
+                        >Register</a
+                      >
+                    </p>
+                  </div>
+                </h:form>
+              </div>
+            </div>
+          </div>
+        </div>
+        <br />
+      </div>
+
+      <footer class="site-footer" style="margin-top: 40px">
+        <div class="container">
+          <div class="row">
+            <div class="ml-auto col-lg-4 col-md-5">
+              <p class="copyright-text">Copyright &copy; 2023 FitLife Co.</p>
+            </div>
+
+            <div
+              class="d-flex justify-content-center mx-auto col-lg-5 col-md-7 col-12"
+            >
+              <p class="mr-4">
+                <i class="fa fa-envelope-o mr-1"></i>
+                <a href="#">hello@FitLife.co</a>
+              </p>
+
+              <p><i class="fa fa-phone mr-1"></i> 0812-0210-0840</p>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <!--</ui:define>-->
+    <!--</ui:composition>-->
+    <div
+      class="modal fade"
+      id="membershipForm"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="membershipFormLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h2 class="modal-title" id="membershipFormLabel">
+              Registration Form
+            </h2>
+            <h:form>
+              <div class="inikasir row">
+                <div class="d-grid col-sm-6">
+                  <label class="form-label">Nama Lengkap</label>
+                </div>
+                <div class="d-grid col-sm-6">
+                  <h:inputText
+                    class="form-control"
+                    value="#{member.memberName}"
+                  />
+                </div>
+              </div>
+              <br />
+
+              <div class="inikasir row">
+                <div class="d-grid col-sm-6">
+                  <label class="form-label">Email</label>
+                </div>
+                <div class="d-grid col-sm-6">
+                  <h:inputText class="form-control" value="#{member.email}" />
+                </div>
+              </div>
+              <br />
+
+              <div class="inikasir row">
+                <div class="d-grid col-sm-6">
+                  <label class="form-label">Password</label>
+                </div>
+                <div class="d-grid col-sm-6">
+                  <h:inputText
+                    class="form-control"
+                    value="#{member.password}"
+                  />
+                </div>
+              </div>
+              <br />
+
+              <div class="inikasir row">
+                <div class="d-grid col-sm-6">
+                  <label class="form-label">No HP</label>
+                </div>
+                <div class="d-grid col-sm-6">
+                  <h:inputText class="form-control" value="#{member.phone}" />
+                </div>
+              </div>
+              <br />
+
+              <div class="inikasir row">
+                <div class="d-grid col-sm-6">
+                  <label class="form-label">Alamat</label>
+                </div>
+                <div class="d-grid col-sm-6">
+                  <h:inputText class="form-control" value="#{member.address}" />
+                </div>
+              </div>
+              <br />
+
+              <div class="inikasir row">
+                <div class="d-grid col-sm-6">
+                  <label class="form-label">Tanggal Lahir</label>
+                </div>
+                <div class="d-grid col-sm-6">
+                  <h:inputText class="form-control" value="#{member.dateBirth}">
+                    <f:convertDateTime pattern="MM/dd/yy" type="date" />
+                  </h:inputText>
+                </div>
+              </div>
+              <br />
+
+              <br />
+              <br />
+
+              <div class="row">
+                <div class="d-grid col-sm-6 tombolloginku">
+                  <h:commandButton
+                    value="ADD"
+                    class="btncari"
+                    action="#{member.savedata()}"
+                  />
+                </div>
+                <div class="d-grid col-sm-6 tombolloginku">
+                  <h:commandButton
+                    value="Review"
+                    class="btncari"
+                    action="G-CekDataKaryawan"
+                  />
+                </div>
+              </div>
+            </h:form>
+          </div>
+          <div class="modal-footer"></div>
+        </div>
+      </div>
+    </div>
+    <!--SCRIPTS-->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/aos.js"></script>
+    <script src="js/smoothscroll.js"></script>
+    <script src="js/custom.js"></script>
+  </h:body>
+</html>

@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 7, 2023 2:21:55 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojo.Trainer" table="trainer" catalog="fitlife" optimistic-lock="version">
+        <id name="idTrainer" type="java.lang.Integer">
+            <column name="id_Trainer" />
+            <generator class="identity" />
+        </id>
+        <property name="trainerName" type="string">
+            <column name="Trainer_Name" length="45" not-null="true" />
+        </property>
+        <property name="email" type="string">
+            <column name="Email" length="45" not-null="true" />
+        </property>
+        <property name="password" type="string">
+            <column name="Password" length="45" not-null="true" />
+        </property>
+        <property name="phoneNumber" type="int">
+            <column name="Phone_Number" not-null="true" />
+        </property>
+        <set name="classmemberships" table="classmembership" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_Trainer" not-null="true" />
+            </key>
+            <one-to-many class="pojo.Classmembership" />
+        </set>
+    </class>
+</hibernate-mapping>

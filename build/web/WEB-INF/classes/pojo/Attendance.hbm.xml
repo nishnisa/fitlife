@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 7, 2023 2:21:55 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojo.Attendance" table="attendance" catalog="fitlife" optimistic-lock="version">
+        <id name="idAttendance" type="java.lang.Integer">
+            <column name="id_Attendance" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="classmembership" class="pojo.Classmembership" fetch="select">
+            <column name="id_ClassMembership" not-null="true" />
+        </many-to-one>
+        <property name="attendanceDate" type="date">
+            <column name="Attendance_Date" length="10" not-null="true" />
+        </property>
+        <property name="status" type="string">
+            <column name="Status" length="10" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

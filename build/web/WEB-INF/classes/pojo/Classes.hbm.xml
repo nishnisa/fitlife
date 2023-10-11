@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 7, 2023 2:21:55 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojo.Classes" table="classes" catalog="fitlife" optimistic-lock="version">
+        <id name="idClasses" type="int">
+            <column name="id_Classes" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="exercise" class="pojo.Exercise" fetch="select">
+            <column name="id_Exercise" not-null="true" />
+        </many-to-one>
+        <property name="classesName" type="string">
+            <column name="Classes_Name" length="45" not-null="true" />
+        </property>
+        <property name="duration" type="time">
+            <column name="Duration" length="8" not-null="true" />
+        </property>
+        <property name="slots" type="int">
+            <column name="Slots" not-null="true" />
+        </property>
+          <property name="images" type="string">
+            <column name="Images" not-null="true" />
+        </property>
+        <set name="classmemberships" table="classmembership" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_Classes" not-null="true" />
+            </key>
+            <one-to-many class="pojo.Classmembership" />
+        </set>
+    </class>
+</hibernate-mapping>
